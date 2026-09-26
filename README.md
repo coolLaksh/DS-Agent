@@ -180,7 +180,7 @@ Traces, per-attempt diagnostics, and answers are written under `runs/<agent>_<de
 The full 450-task `reflexion_V3` run costs real API time and money to redo end to end, so instead this was checked directly against the golden set (43 scored tasks) using the frozen code exactly as documented above, at the same defaults (`--split all`, `temperature 0.2`, `--max-attempts 3`, context injection on):
 
 ```bash
-python3 code/reflexion_tools.py --split all --concurrency 2 --tasks-ids <the 47 golden task ids>
+python3 code/reflexion_tools.py --split all --concurrency 2 --tasks-ids <the 43 golden task ids>
 python3 code/score_golden.py runs/reflexion_tools_gpt-4o-mini/all/<timestamp>
 ```
 
