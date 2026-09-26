@@ -82,7 +82,9 @@ Every archetype that got its own function moved to, or close to, a clean score a
 
 ## Architecture
 
-<img src="results/figures/architecture.png" alt="Final architecture: task in, context layer, ReAct loop, verification layer (finish_signal, deterministic checks, LLM judge), retry-with-note loop, final answer out" width="640" />\## Limitations
+<img src="results/figures/architecture.png" alt="Final architecture: task in, context layer, ReAct loop, verification layer (finish_signal, deterministic checks, LLM judge), retry-with-note loop, final answer out" width="640" />\
+
+## Limitations
 
 - **Unvalidated.** All scores are my own submissions on DABstep's Unvalidated tab. Since the submission window was closed.
 - **One benchmark, one small model, mostly single-run scores.** Repeated-run variance was not measured for the final agent this pass; this was a deliberate scope decision, not an oversight.
