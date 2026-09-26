@@ -82,7 +82,7 @@ Every archetype that got its own function moved to, or close to, a clean score a
 
 ## Architecture
 
-![Alt text](results/figures/architecture.png)
+![alt text](https://github.com/coolLaksh/DS-Agent/blob/main/results/figures/architecture.png)
 
 ## Limitations
 
