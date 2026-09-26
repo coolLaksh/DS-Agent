@@ -82,7 +82,67 @@ Every archetype that got its own function moved to, or close to, a clean score a
 
 ## Architecture
 
-![alt text](https://github.com/coolLaksh/DS-Agent/blob/main/results/figures/architecture.png)
+```
+                    ┌────────────────────────────────────────────────────────┐
+                    │                          task                          │
+                    └────────────────────────────────────────────────────────┘
+                                                 │
+                                                 │
+                                                 ▼
+                    ┌────────────────────────────────────────────────────────┐
+                    │                     Context layer                      │
+                    │                 keyword match, no LLM                  │
+                    │                    build_context.py                    │
+                    └────────────────────────────────────────────────────────┘
+                                                 │
+                                                 │
+                                                 ▼
+                    ┌────────────────────────────────────────────────────────┐
+                    │                       ReAct loop                       │
+    ┌──────────────▶│              gpt-4o-mini, up to 10 steps               │
+    │               │                     agent_core.py                      │
+    │               └────────────────────────────────────────────────────────┘
+    │                                            │
+    │ retry with note                            │
+    │                                            ▼
+    │               ┌────────────────────────────────────────────────────────┐
+    │               │                     finish_signal                      │
+    │               │               blank / max-steps -> fail                │
+    │               │                   reflexion_tools.py                   │
+    │               └────────────────────────────────────────────────────────┘
+    │                               if not blank, not exhausted
+    │                                            │
+    │                                            │
+    │                                            ▼
+    │               ┌────────────────────────────────────────────────────────┐
+    │               │                  deterministic checks                  │
+    │               │         verify_argmax / rate_change_grounding          │
+    │               │                   reflexion_tools.py                   │
+    │               └────────────────────────────────────────────────────────┘
+    │                                   if not confirmed
+    │                                            │
+    │                                            │
+    │                                            ▼
+    │               ┌────────────────────────────────────────────────────────┐
+    │               │                       LLM judge                        │
+    │               │       grounding + constraint audit, cites a step       │
+    │               │                   reflexion_tools.py                   │
+    │               └────────────────────────────────────────────────────────┘
+    │                 fail                                          pass / exhausted
+    │                     │                                           │
+    │                     ▼                                           ▼
+    │        ┌──────────────────────────┐                ┌──────────────────────────┐
+    │        │        reflect()         │                │    pick_best_answer()    │
+    └────────│    writes VERIFIED /     │                │     prefers the LAST     │
+             │       MISTAKE note       │                │    non-blank attempt     │
+             │    reflexion_tools.py    │                │    reflexion_tools.py    │
+             └──────────────────────────┘                └──────────────────────────┘
+                                                                      │
+                                                                      │
+                                                                      ▼
+                                                         ┌──────────────────────────┐
+                                                         │       final answer       │
+```
 
 ## Limitations
 
