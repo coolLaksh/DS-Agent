@@ -82,7 +82,7 @@ Every archetype that got its own function moved to, or close to, a clean score a
 
 ## Architecture
 
-<img src="results/figures/architecture.png" alt="Final architecture: task in, context layer, ReAct loop, verification layer (finish_signal, deterministic checks, LLM judge), retry-with-note loop, final answer out" width="640" />\
+![Alt text](results/figures/architecture.png)
 
 ## Limitations
 
