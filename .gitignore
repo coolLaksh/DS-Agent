@@ -1,0 +1,27 @@
+# Secrets and local env
+.env
+code/.env
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# The DABStep dataset itself must NEVER be committed here.
+# Link to the source instead: https://huggingface.co/datasets/adyen/data-agents-benchmark
+data/
+dataset/
+DataSet
+DataSet/
+
+# Local run output (answers/attempts/trace) from reproducing a run - not published
+runs/
+
+# Supplementary docs superseded by README.md - kept locally, not published
+docs/
+code/reference/
+
+# Golden answers - not published, to avoid handing out DABstep answers
+code/golden/golden_set.json

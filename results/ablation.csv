@@ -1,0 +1,9 @@
+run,date,easy_pct,hard_pct,easy_correct,hard_correct,easy_total,hard_total,overall_pct
+base_gpt4o_mini,2026-09-06,61.11,3.44,44,13,72,378,12.67
+react_tools,2026-09-12,61.11,3.70,44,14,72,378,12.89
+reflexion,2026-09-12,69.44,3.70,50,14,72,378,14.22
+react_context,2026-09-14,79.17,19.31,57,73,72,378,28.89
+react_context_tools,2026-09-17,75.00,18.78,54,71,72,378,27.78
+react_context_tools_V2,2026-09-17,75.00,19.05,54,72,72,378,28.00
+reflexion_v2,2026-09-18,72.22,28.31,52,107,72,378,35.33
+reflexion_V3,2026-09-20,76.39,53.44,55,202,72,378,57.11

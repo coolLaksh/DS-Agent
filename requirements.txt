@@ -1,0 +1,8 @@
+# Built and tested with Python 3.14.7
+pandas==3.0.5
+openai==3.8.0
+python-dotenv==1.2.3
+tqdm==4.70.0
+# matplotlib is only needed to regenerate the ablation figures
+# (scripts/make_figures.py), not to run the agent itself.
+matplotlib==3.11.2
