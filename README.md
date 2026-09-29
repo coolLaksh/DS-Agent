@@ -142,6 +142,7 @@ Every archetype that got its own function moved to, or close to, a clean score a
                                                                       ▼
                                                          ┌──────────────────────────┐
                                                          │       final answer       │
+                                                         └──────────────────────────┘
 ```
 
 ## Limitations
